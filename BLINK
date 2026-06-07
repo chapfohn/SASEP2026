@@ -1,0 +1,14 @@
+const int redLED = 8;  
+const int work = 1000; 
+const int rest = 1000;
+
+void setup() {
+  pinMode(redLED, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(redLED, HIGH);   
+  delay(work);                      
+  digitalWrite(redLED, LOW);    
+  delay(rest);                    
+}
