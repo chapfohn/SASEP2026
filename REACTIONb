@@ -1,0 +1,51 @@
+const int ledPin = 9;
+const int buttonPin = 2;
+const int noisePin = A0
+
+unsigned long startTime;
+unsigned long reactionTime;
+boolean buttonPressed = false;
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+  pinMode(buttonPin, INPUT_PULLUP); // Uses internal pull-up resistor
+  Serial.begin(9600);
+  randomSeed(analogRead(noisePin)); // Generates a random seed for delays from floating pin
+  
+  Serial.println("Press the button to start...");
+}
+
+void loop() {
+  // 1. Wait for user to press button to start
+  if (digitalRead(buttonPin) == LOW) {
+    Serial.println("Ready...");
+    digitalWrite(ledPin, LOW); 
+    delay(1000); 
+    
+    // 2. Wait a random amount of time (2 to 5 seconds)
+    int randomDelay = random(2000, 5001);
+    delay(randomDelay);
+    
+    // 3. Turn on the LED and start the timer
+    digitalWrite(ledPin, HIGH);
+    startTime = millis(); 
+    
+    // 4. Wait for the user to press the button
+    buttonPressed = false;
+    while (buttonPressed == false) {
+      if (digitalRead(buttonPin) == LOW) {
+        reactionTime = millis() - startTime; 
+        buttonPressed = true;
+      }
+    }
+    
+    // 5. Turn off LED and output results
+    digitalWrite(ledPin, LOW);
+    Serial.print("Reaction Time: ");
+    Serial.print(reactionTime);
+    Serial.println(" ms");
+    
+    delay(2000); 
+    Serial.println("\nPress the button to play again...");
+  }
+}
