@@ -1,0 +1,21 @@
+const int sensorPin = A0;
+float vRaw;
+float vOut;
+float temp;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  vRaw = analogRead (sensorPin);
+  vOut = (vRaw*4.68)/1024;
+  temp = (vOut-.5)*100;
+  
+
+  // Print results to the Serial Monitor
+  Serial.print("C: ");
+  Serial.print(temp);
+  
+  delay(100);
+}
