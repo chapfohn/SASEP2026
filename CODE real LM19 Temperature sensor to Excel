@@ -1,0 +1,21 @@
+const int sensorPin = A0; 
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+  // Read the analog value (0-1023) and convert it to voltage
+  int rawValue = analogRead(sensorPin);
+  float voltage = (rawValue * 5.0) / 1024.0; // Using 5.0 V as reference
+
+  // LM19 linear transfer function: T(C) = (1.8663 - Vo) / 0.01169
+  float temperatureC = (1.8663 - voltage) / 0.01169;
+  
+  //Serial.print("Temperature: ");
+  Serial.println(temperatureC);
+  Serial.print(",");
+  
+ 
+  delay(100); 
+}
