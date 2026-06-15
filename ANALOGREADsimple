@@ -10,5 +10,5 @@ void loop() {
     Serial.print("sensorValue ");
     Serial.print(","); //delimit ["\t", "," IF "," THEN // Serial.print("sensorValue ");]
     Serial.println(sensorValue);
-  delay(10);        
+    delay(10);        
 }
