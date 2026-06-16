@@ -9,7 +9,7 @@ void setup() {
 
 void loop() {
   vRaw = analogRead (sensorPin);
-  vOut = (vRaw*4.68)/1024;
+  vOut = (vRaw*5.00)/1024;
   temp = (vOut-.5)*100;
   
 
