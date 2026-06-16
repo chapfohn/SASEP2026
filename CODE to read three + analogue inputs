@@ -1,0 +1,29 @@
+const int analogPinL = A0;  
+const int analogPinM = A1; 
+const int analogPinR = A2; 
+
+int sensorValueL = 0;
+int sensorValueM = 0;
+int sensorValueR = 0;
+
+void setup() {
+  Serial.begin(9600);
+}
+
+void loop() {
+    sensorValueL = analogRead(analogPinL);
+    sensorValueM = analogRead(analogPinM);
+    sensorValueR = analogRead(analogPinR);
+    //Serial.print("sensorValueL ");
+    //Serial.print(","); //delimit ["\t", "," IF "," THEN // Serial.print("sensorValue ");]
+    Serial.print(sensorValueL);
+    Serial.print(","); //delimit ["\t", "," IF "," THEN // Serial.print("sensorValue ");]
+    //Serial.print("sensorValueM ");
+    //Serial.print(","); //delimit ["\t", "," IF "," THEN // Serial.print("sensorValue ");]
+    Serial.print(sensorValueM);
+    Serial.print(","); //delimit ["\t", "," IF "," THEN // Serial.print("sensorValue ");]
+    //Serial.print("sensorValueR ");
+    //Serial.print(","); //delimit ["\t", "," IF "," THEN // Serial.print("sensorValue ");]
+    Serial.println(sensorValueR);
+    delay(100);        
+}
