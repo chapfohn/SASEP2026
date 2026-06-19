@@ -6,7 +6,7 @@ int buttonState = 0;
 
 void setup() {
   pinMode(ledPin, OUTPUT);
-  pinMode(buttonPin, INPUT);
+  pinMode(buttonPin, INPUT); //IF internal puulup THEN [pinMode(buttonPin, INPUT_PULLUP);]
   Serial.begin(9600);
 }
 
