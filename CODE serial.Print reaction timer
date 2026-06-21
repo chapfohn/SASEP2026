@@ -1,0 +1,47 @@
+const int ledPin = 13;
+const int buttonPin = 2;
+
+unsigned long reactionTime = 0;
+int randomWait = 0;
+unsigned long startTime = 0;
+unsigned long endTime = 0;
+
+void setup() {
+  pinMode(ledPin, OUTPUT);
+  pinMode(buttonPin, INPUT_PULLUP); 
+  Serial.begin(9600);
+  randomSeed(analogRead(A0));
+  
+  Serial.println("Press and hold the button to start, ...");
+  Serial.println("...  , release the button when the light appears.");
+}
+
+void loop() {
+  // Wait until the button is pressed to start
+  while (digitalRead(buttonPin) == HIGH) {
+    // Do nothing until button release
+  }
+  
+  Serial.println("Ready...");
+  digitalWrite(ledPin, LOW); 
+  
+  randomWait = random(2000, 5000);
+  delay(randomWait);
+  
+  digitalWrite(ledPin, HIGH);
+  startTime = millis(); 
+  
+  // Wait for the user to release the button
+  while (digitalRead(buttonPin) == LOW) {
+  }
+  
+  endTime = millis();
+  digitalWrite(ledPin, LOW);
+  
+  reactionTime = endTime - startTime;
+  Serial.print("Reaction Time: ");
+  Serial.println(reactionTime);
+  Serial.println(" ms");
+  
+  delay(1000);
+}
