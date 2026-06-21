@@ -39,8 +39,8 @@ void loop() {
   digitalWrite(ledPin, LOW);
   
   reactionTime = endTime - startTime;
-  Serial.print("Reaction Time: ");
-  Serial.println(reactionTime);
+  Serial.println("Reaction Time: ");
+  Serial.print(reactionTime);
   Serial.println(" ms");
   
   delay(1000);
