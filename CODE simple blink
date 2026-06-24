@@ -1,0 +1,13 @@
+const int rLED = 8;
+int duration = 1000;
+
+void setup() {
+  pinMode(rLED, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(rLED, HIGH);   
+  delay(duration);                       
+  digitalWrite(rLED, LOW);    
+  delay(duration);                      
+}
