@@ -1,5 +1,5 @@
 const int rLED = 8;
-int duration = 1000;
+const int duration = 1000;
 
 void setup() {
   pinMode(rLED, OUTPUT);
